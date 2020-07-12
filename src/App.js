@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import AppContext from './AppContext';
+import LandingPage from './LandingPage';
+// import LoginPage from './LoginPage';
 import './App.css';
 
-function App() {
+const App = () => {
+
+  const [globalState, setGlobalState] = useState({
+    loggedIn: localStorage.getItem('jwt') ? true : false,
+    user: null
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    <AppContext.Provider value={[globalState, setGlobalState]}>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact={true} component={LandingPage}/>
+          {/* <Route path="/login" exact={true} component={LoginPage}/> */}
+        </Switch>
+      </BrowserRouter>
+    </AppContext.Provider>
+  )
 }
+
 
 export default App;
