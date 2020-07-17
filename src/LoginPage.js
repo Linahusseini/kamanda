@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import AppContext from './AppContext';
-// import Navbar from './Navbar.js';
 import './RegistrationPage.css';
 
 
@@ -22,6 +21,7 @@ const LoginPage = () => {
     )
 
     const LoginUser = () => {
+        console.log(emailField.value,passwordField.value);
 
         // Start loading
         setState({...state, loading: true})
@@ -33,7 +33,10 @@ const LoginPage = () => {
                     email: emailField.value,
                     password: passwordField.value
                 }),
-                headers: {"Content-Type": "application/json"}
+                headers: {"Content-Type": "application/json"
+                            // "Authorization": `Bearer ${localStorage.getItem('jwt')}`
+                        }
+                
             }
         )
         .then(
@@ -66,7 +69,7 @@ const LoginPage = () => {
 
     // If the user is loggedIn, redirect them
     if(globalState.loggedIn === true) {
-        return(<Redirect to="/"/>)
+        return(<Redirect to="/ProfilePage"/>)
     }
 
     // Otherwise, show the login form
@@ -88,14 +91,14 @@ const LoginPage = () => {
                     <form className="form-detail" action="#" method="post" id="myform">
                         <h2>Login Form</h2>
                             <div className="form-row">
-                            <label for="your_email">Your Email</label>
+                            <label for="your_email">Email</label>
                             <input
                             ref={(comp)=>emailField = comp}
                             type="text" 
                             name="your_email" 
                             id="your_email" 
-                            className="input-text" 
-                            required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"/>
+                            className="input-text" />
+                            
                         </div>
                         <div className="form-group">
                             <div className="form-row">
@@ -124,7 +127,7 @@ const LoginPage = () => {
                             type="submit" 
                             name="register" 
                             className="register" 
-                            value="Register"/>
+                            value="Login"/>
                         </div>
                     </form>
                 </div>

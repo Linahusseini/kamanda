@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import AppContext from './AppContext';
 import { Link } from 'react-router-dom';
 import logo from './logo.svg';
@@ -11,16 +11,11 @@ const LandingPage = () => {
 
     const [globalState, setGlobalState] = useContext(AppContext);
 
-    const logOut = () => {
-        setGlobalState(
-            {
-                ...globalState,
-                loggedIn: false
-            }
-        );
-
-        localStorage.clear();
-    }
+    const [state, setState] = useState(
+        {
+            loading: false
+        }
+    )
 
     return (
           
@@ -52,13 +47,7 @@ const LandingPage = () => {
                     </Link>
                 }
 
-                {
-                    globalState.loggedIn === true && 
-                    <button onClick={logOut}
-                     id = "modalBtn" className="button">
-                        Log Out
-                    </button>
-                }
+              
             </div>
                     {/* <button id="modalBtn" className="button">
                 
@@ -131,24 +120,4 @@ const LandingPage = () => {
 
 export default LandingPage;
 
-{/* /*</nav>
-<section class="services">
-    <div class="container grid-3 center">
-      <div>
-        <i class="fas fa-calendar-day fa-3x"></i>
-        <a href="#"><h3>What's Happenin'</h3></a>
-      </div>
-      <div>
-        <i class="fas fa-store fa-3x"></i>
-        <a href="#"><h3>Gear Boutique</h3></a>
-      </div>
-      <div>
-        <i class="fas fa-chalkboard-teacher fa-3x"></i>
-        <a href="#"><h3>Coach/ Academies</h3></a>
-      </div>
-      <div>
-        <i class="fas fa-address-book fa-3x"></i>
-        <a href="#"><h3>Community</h3></a>
-      </div>
-    </div>
-  </section> */}
+

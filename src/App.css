@@ -1,18 +1,9 @@
 
-
-
-/*Registration Page CSS*/
 body {
   background: #8AA4AB;
   margin: 0;
   color: #fff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.shape{
-
-
-
 }
 
 .showcase::after {
@@ -56,12 +47,11 @@ h2{
 
 
 .button {
-  position: relative;
-   width: 30%;
-  height: 100%;
+  width: 130px;
+  height: 50px;
   background: rgba(255, 77, 0, 0.75);
-  border-radius: 4rem;
-  margin-bottom: 20%;
+  border-radius: 1.5rem;
+  margin-bottom: 10%;
   text-align: center;
   vertical-align: middle;
   line-height: 1.5;
@@ -208,6 +198,10 @@ footer p {
   color: #FF4D00;
   z-index: 999;
 }
+
+
+/*Registration Page CSS*/
+
 
 /* kamanda CSS above*/
 

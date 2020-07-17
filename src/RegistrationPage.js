@@ -20,17 +20,20 @@ const RegistrationPage = () => {
     let lastNameField;
     let emailField;
     let passwordField;
+    // let usernameField;
 
     
 
     const registerUser = () => {
+        console.log('user datails ',firstNameField.value, lastNameField.value, emailField.value, passwordField.value);
         fetch('http://localhost:8080/users/register', {
             method: 'POST',
             body: JSON.stringify({
                 firstName: firstNameField.value,
                 lastName: lastNameField.value,
                 email: emailField.value,
-                password: passwordField.value
+                password: passwordField.value,
+                // username: usernameField.value
             }),
             headers: {"Content-Type": "application/json"}
         })
@@ -89,7 +92,7 @@ const RegistrationPage = () => {
                         <h2>Registration Form</h2>
                         <div className="form-group">
                             <div className="form-row form-row-1">
-                                <label for="first_name">First Name</label>
+                                <label htmlFor="first_name">First Name</label>
                                 <input
                                 ref={(comp)=>firstNameField = comp}
                                 type="text" 
@@ -98,7 +101,7 @@ const RegistrationPage = () => {
                                 className="input-text"/>
                             </div>
                             <div className="form-row form-row-1">
-                                <label for="last_name">Last Name</label>
+                                <label htmlFor="last_name">Last Name</label>
                                 <input
                                 ref={(comp)=>lastNameField = comp}
                                 type="text" 
@@ -107,19 +110,30 @@ const RegistrationPage = () => {
                                 className="input-text"/>
                             </div>
                         </div>
+                        {
+                        /* <div className="form-group">
+                            <div className="form-row form-row-1">
+                                <label for="first_name">Username</label>
+                                <input
+                                ref={(comp)=>usernameField = comp}
+                                type="text" 
+                                name="first_name" 
+                                id="first_name" 
+                                className="input-text"/>
+                            </div> */}
                         <div className="form-row">
-                            <label for="your_email">Your Email</label>
+                            <label htmlFor="your_email">Your Email</label>
                             <input
                             ref={(comp)=>emailField = comp}
                             type="text" 
                             name="your_email" 
                             id="your_email" 
-                            className="input-text" 
-                            required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"/>
+                            className="input-text" />
+                            
                         </div>
                         <div className="form-group">
                             <div className="form-row">
-                                <label for="password">Password</label>
+                                <label htmlFor="password">Password</label>
                                 <input
                                 ref={(comp)=>passwordField = comp}
                                 type="password" 
@@ -146,7 +160,9 @@ const RegistrationPage = () => {
                             className="register" 
                             value="Register"/>
                         </div>
+                        {/* </div> */}
                     </form>
+                    
                 </div>
             </div>
         </body>  
