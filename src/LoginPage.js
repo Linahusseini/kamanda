@@ -20,11 +20,12 @@ const LoginPage = () => {
         }
     )
 
-    const LoginUser = () => {
-        console.log(emailField.value,passwordField.value);
+    const LoginUser = (e) => {
+        
+        e.preventDefault()
 
-        // Start loading
-        setState({...state, loading: true})
+        // // Start loading
+        // setState({...state, loading: true})
 
         fetch('http://localhost:8080/users/login', 
             {
@@ -40,7 +41,7 @@ const LoginPage = () => {
             }
         )
         .then(
-            (result) => result.json()
+            (response) => response.json()
         )
         .then (
             (json) => {
@@ -75,7 +76,8 @@ const LoginPage = () => {
     // Otherwise, show the login form
     else {
         return(
-            <body className="form-v4">
+            //  <body className="form-v4">
+            <div className="form-v4">
             <div className="page-content">
                 <div className="form-v4-content">
                     <div className="form-left">
@@ -88,10 +90,10 @@ const LoginPage = () => {
                             {/* <input type="submit" name="account" className="account" value="Have An Account"/> */}
                         </div>
                     </div>
-                    <form className="form-detail" action="#" method="post" id="myform">
+                    <form className="form-detail" onSubmit={LoginUser} method="post" id="myform">
                         <h2>Login Form</h2>
                             <div className="form-row">
-                            <label for="your_email">Email</label>
+                            <label htmlFor="your_email">Email</label>
                             <input
                             ref={(comp)=>emailField = comp}
                             type="text" 
@@ -102,7 +104,7 @@ const LoginPage = () => {
                         </div>
                         <div className="form-group">
                             <div className="form-row">
-                                <label for="password">Password</label>
+                                <label htmlFor="password">Password</label>
                                 <input
                                 ref={(comp)=>passwordField = comp}
                                 type="password" 
@@ -123,7 +125,6 @@ const LoginPage = () => {
                         </div> */}
                         <div className="form-row-last">
                             <input
-                            onClick = {LoginUser}
                             type="submit" 
                             name="register" 
                             className="register" 
@@ -132,7 +133,7 @@ const LoginPage = () => {
                     </form>
                 </div>
             </div>
-        </body>
+        </div>
         )
     }
 }

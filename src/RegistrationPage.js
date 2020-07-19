@@ -15,17 +15,23 @@ const RegistrationPage = () => {
         }
     );
 
+
     // These will be assigned values by React
     let firstNameField;
     let lastNameField;
     let emailField;
     let passwordField;
-    // let usernameField;
+    let usernameField;
 
     
 
-    const registerUser = () => {
-        console.log('user datails ',firstNameField.value, lastNameField.value, emailField.value, passwordField.value);
+    const registerUser = (e) => {
+
+        // since you are using form you should use below statement, because every time you submit the form, will
+        // reload and causing the state to go to its initial values
+        e.preventDefault()
+        ///////////////////////
+       
         fetch('http://localhost:8080/users/register', {
             method: 'POST',
             body: JSON.stringify({
@@ -33,7 +39,7 @@ const RegistrationPage = () => {
                 lastName: lastNameField.value,
                 email: emailField.value,
                 password: passwordField.value,
-                // username: usernameField.value
+                username: usernameField.value
             }),
             headers: {"Content-Type": "application/json"}
         })
@@ -42,18 +48,21 @@ const RegistrationPage = () => {
         )
         .then(
             (json)=> {
-                const { message } = json;
-                if(message === "User has been saved") {
+               // you were checking {message} = json....which is wrong because your backend is responding with a string called json = "User has been saved".....and not an object like json={message: "User has been saved"}
+                // const { message } = json;
+                if(json === "User has been saved") {
+                    console.log('the message is true')
                     //
                     setState(
                         {
                             ...state,
                             registered: true,
-                            loading: false
+                            loading: false,
                         }
                     )
+
                 } else {
-                    //alert("Please check all the fields");
+                    alert("Please check all the fields");
                     setState(
                         {
                             loading: false
@@ -63,19 +72,19 @@ const RegistrationPage = () => {
             }
         )
 
-        console.log(firstNameField.value, lastNameField.value, emailField.value, passwordField.value)
-    }
+     }
 
-    // If the user is registered, redirect them
+
+    //If the user is registered, redirect them
     if(state.registered === true) {
         return (<Redirect to="/login"/>)
     }
 
-    // Otherwise, show the registration form
+    //Otherwise, show the registration form
     else {
-    
+     //   console.log('registration state',state.registered)
         return(
-        <body className="form-v4">
+        // <body className="form-v4">
             <div className="page-content">
                 <div className="form-v4-content">
                     <div className="form-left">
@@ -85,10 +94,11 @@ const RegistrationPage = () => {
                         <p className="text-1">Hello Buddy! Welcome to Kamanda.</p>
                         <p className="text-2"><span>Sign Up Here:</span> And start your journey with us</p>
                         <div className="form-left-last">
-                            {/* <input type="submit" name="account" className="account" value="Have An Account"/> */}
-                        </div>
+                          
+                        </div> 
                     </div>
-                    <form className="form-detail" action="#" method="post" id="myform">
+                    
+                    <form className="form-detail"  onSubmit={registerUser} method="" id="myform">
                         <h2>Registration Form</h2>
                         <div className="form-group">
                             <div className="form-row form-row-1">
@@ -110,17 +120,7 @@ const RegistrationPage = () => {
                                 className="input-text"/>
                             </div>
                         </div>
-                        {
-                        /* <div className="form-group">
-                            <div className="form-row form-row-1">
-                                <label for="first_name">Username</label>
-                                <input
-                                ref={(comp)=>usernameField = comp}
-                                type="text" 
-                                name="first_name" 
-                                id="first_name" 
-                                className="input-text"/>
-                            </div> */}
+                     
                         <div className="form-row">
                             <label htmlFor="your_email">Your Email</label>
                             <input
@@ -131,6 +131,15 @@ const RegistrationPage = () => {
                             className="input-text" />
                             
                         </div>
+                        <div className="form-row form-row-1">
+                                <label htmlFor="username">UserName</label>
+                                <input
+                                ref={(comp)=>usernameField = comp}
+                                type="text" 
+                                name="username" 
+                                id="username" 
+                                className="input-text"/>
+                            </div>
                         <div className="form-group">
                             <div className="form-row">
                                 <label htmlFor="password">Password</label>
@@ -141,35 +150,25 @@ const RegistrationPage = () => {
                                 id="password" 
                                 className="input-text" required/>
                             </div>
-                            {/* <div className="form-row form-row-1">
-                                <label for="comfirm-password">Comfirm Password</label>
-                                <input type="password" name="comfirm_password" id="comfirm_password" className="input-text" required/>
-                            </div> */}
+                          
                         </div>
-                        {/* <div className="form-checkbox">
-                            <label className="container"><p>I agree to the <a href="#" className="text">Terms and Conditions</a></p>
-                                <input type="checkbox" name="checkbox"/>
-                                <span className="checkmark"></span>
-                            </label>
-                        </div> */}
+                       
                         <div className="form-row-last">
-                            <input
-                            onClick = {registerUser}
+                            <button
                             type="submit" 
                             name="register" 
                             className="register" 
-                            value="Register"/>
+                            value="Register"> Submit </button> 
                         </div>
-                        {/* </div> */}
                     </form>
                     
                 </div>
             </div>
-        </body>  
+        // </body>  
         
         
         )
-    }
+   }
 }
 
 

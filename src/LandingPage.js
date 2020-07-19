@@ -21,8 +21,16 @@ const LandingPage = () => {
           
         <body>
             <span className="kamanda">k<span style={{fontSize : "2.75rem"}}>a</span>m<span style={{fontSize : "2.4rem"}}>a</span>nda</span>
-              
-           
+            
+            {
+                    globalState.loggedIn === false && 
+                    <Link
+                    to="/login"
+                    className="buttonLeft">
+                        Login
+                    </Link>
+                }
+
 
         <header className="showcase">
 
@@ -64,7 +72,7 @@ const LandingPage = () => {
                 loading="lazy"/> */}
                 <div>
                 <i className="fas fa-calendar-day fa-3x"></i>
-                <a href="#"><h3>Kamanda</h3></a>
+                <a href="#"><h3>Events</h3></a>
             </div>             
             </Link> 
 
