@@ -4,8 +4,8 @@ import AppContext from './AppContext';
 import LandingPage from './LandingPage';
 import RegistrationPage from './RegistrationPage';
 import LoginPage from './LoginPage';
-import ProfilePage from './ProfilePage';
-import GearBoutique from './GB'
+import ProfilePage from './Profile';
+// import GearBoutique from './GB'
 import './App.css';
 
 const PrivateRoute = ({ component: Component, ...otherProps }) => {
@@ -34,7 +34,7 @@ const App = () => {
           <Route path="/" exact={true} component={LandingPage}/>
           <Route path="/login" exact={true} component={LoginPage}/>
           <Route path="/register" exact={true} component={RegistrationPage}/>
-          <Route path="/gearBoutique" exact={true} component={GearBoutique}/>
+          {/* <Route path="/gearBoutique" exact={true} component={GearBoutique}/> */}
           <PrivateRoute path="/ProfilePage" exact={true} component={ProfilePage}/>
         </Switch>
       </BrowserRouter>

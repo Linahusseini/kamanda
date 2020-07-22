@@ -1,0 +1,32 @@
+
+a:hover{
+    color: white;
+}
+
+.fa-user-circle{
+    color: white;
+    position: absolute;
+    right: 20%;
+    top:1.5%;
+}
+
+.fa-user-circle:hover{
+    color:  rgba(255, 77, 0, 0.75);
+    transform: rotate3d(0, 1, 0, 30deg);
+}
+
+.log{
+    position: absolute;
+    width: 13%;
+    height: 6.5vh;
+    right: 5%;
+    top: .8%;
+    line-height: .8;
+    font-size: 1rem;
+    text-transform: uppercase;
+    background-color: transparent;
+    color:rgba(255, 77, 0, 0.75);
+    text-transform: uppercase;
+    border: 3px solid rgba(255, 77, 0, 0.75);
+    transition: 1.5s;
+}

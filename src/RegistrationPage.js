@@ -21,8 +21,7 @@ const RegistrationPage = () => {
     let lastNameField;
     let emailField;
     let passwordField;
-    let usernameField;
-
+   
     
 
     const registerUser = (e) => {
@@ -39,7 +38,6 @@ const RegistrationPage = () => {
                 lastName: lastNameField.value,
                 email: emailField.value,
                 password: passwordField.value,
-                username: usernameField.value
             }),
             headers: {"Content-Type": "application/json"}
         })
@@ -91,7 +89,7 @@ const RegistrationPage = () => {
                         
                         <h2>Information</h2>
                         
-                        <p className="text-1">Hello Buddy! Welcome to Kamanda.</p>
+                        <p className="text-1" style={{color: 'black', fontWeight: 'bold'}}>Hello Buddy! Welcome to Kamanda.</p>
                         <p className="text-2"><span>Sign Up Here:</span> And start your journey with us</p>
                         <div className="form-left-last">
                           
@@ -131,7 +129,7 @@ const RegistrationPage = () => {
                             className="input-text" />
                             
                         </div>
-                        <div className="form-row form-row-1">
+                        {/* <div className="form-row form-row-1">
                                 <label htmlFor="username">UserName</label>
                                 <input
                                 ref={(comp)=>usernameField = comp}
@@ -139,7 +137,7 @@ const RegistrationPage = () => {
                                 name="username" 
                                 id="username" 
                                 className="input-text"/>
-                            </div>
+                            </div> */}
                         <div className="form-group">
                             <div className="form-row">
                                 <label htmlFor="password">Password</label>
