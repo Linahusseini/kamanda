@@ -34,8 +34,8 @@ const LoginPage = () => {
                     email: emailField.value,
                     password: passwordField.value
                 }),
-                headers: {"Content-Type": "application/json"
-                            // "Authorization": `Bearer ${localStorage.getItem('jwt')}`
+                headers: {"Content-Type": "application/json",
+                            "Authorization": `Bearer ${localStorage.getItem('jwt')}`
                         }
                 
             }

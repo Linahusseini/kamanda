@@ -65,7 +65,7 @@ const LandingPage = () => {
         </header>
             
         <nav className="container grid-3 center">
-            <Link className="services" to="/">
+            <Link className="services" to="/events">
                 {/* <img src={logo} width="30" height="30" 
                 className="d-inline-block align-top" 
                 alt="" 
@@ -76,7 +76,7 @@ const LandingPage = () => {
             </div>             
             </Link> 
 
-            <Link className="services" to="/Community">
+            <Link className="services" to="/community">
                 {/* <img src={logo} width="30" height="30" 
                 className="d-inline-block align-top" 
                 alt="" 
@@ -88,7 +88,7 @@ const LandingPage = () => {
             </Link>
 
            
-            <Link className="services" to="/GearBoutique">
+            <Link className="services" to="/gearboutique">
                 {/* <img src={logo} width="30" height="30" 
                 className="d-inline-block align-top" 
                 alt="" 

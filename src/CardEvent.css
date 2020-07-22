@@ -1,0 +1,17 @@
+.cardEvent{
+    color: black;
+    width: 30rem;
+    background-color: white;
+    opacity: .8;
+    transition: 1000ms;
+}
+
+.cardEvent:hover{
+    color: white;
+    background-color: cadetblue;
+    transform: rotate(3deg);
+}
+
+.eventTitle{
+    text-transform: uppercase;
+}

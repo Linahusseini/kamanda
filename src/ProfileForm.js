@@ -63,7 +63,7 @@ const ProfileForm = () => {
                 body: JSON.stringify({
                     // firstName: firstName.value,
                     // lastName: lastName.value,
-                    email: email.value,
+                    // email: email.value,
                     dateOfBirth: dateOfBirth.value,
                     occupation: occupation.value,
                     basedIn: basedIn.value,

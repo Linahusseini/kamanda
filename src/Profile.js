@@ -166,31 +166,31 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                {
+                {/* {
                     state.user.map(
-                        (user)=>
+                        (user)=> */}
 
                         <div className="lower-container">
                             <div>
                                 <h3 className="name">
-                                    {user.firstName +  user.lastName}
+                                    Houra Hatam
                                 </h3>
                                 <h4>
-                                    {user.occupation}
+                                    Banker
                                 </h4>
                                 <h5>
-                                    {user.basedIn}
+                                    Dubai
                                 </h5>
                             </div>
                             <div>
                                 <p>
-                                    {user.intersts}
+                                    I love Skydiving!
                                 </p>
                             </div>
                         </div>
                 
-                    )
-                }
+                    
+                
                 
                 
             </div>

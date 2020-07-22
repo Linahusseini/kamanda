@@ -5,8 +5,11 @@ import LandingPage from './LandingPage';
 import RegistrationPage from './RegistrationPage';
 import LoginPage from './LoginPage';
 import ProfilePage from './Profile';
-// import GearBoutique from './GB'
+import GearBoutique from './GearBoutique'
+import EventsPage from './EventsPage'
 import './App.css';
+import CommunityPage from './CommunityPage';
+import EventCreation from './EventsCreation';
 
 const PrivateRoute = ({ component: Component, ...otherProps }) => {
 
@@ -34,7 +37,10 @@ const App = () => {
           <Route path="/" exact={true} component={LandingPage}/>
           <Route path="/login" exact={true} component={LoginPage}/>
           <Route path="/register" exact={true} component={RegistrationPage}/>
-          {/* <Route path="/gearBoutique" exact={true} component={GearBoutique}/> */}
+          <Route path="/gearboutique" exact={true} component={GearBoutique}/>
+          <Route path="/events" exact={true} component={EventsPage}/>
+          <Route path="/community" exact={true} component={CommunityPage}/>
+          <Route path="/CreateEvents" exact={true} component={EventCreation}/>
           <PrivateRoute path="/ProfilePage" exact={true} component={ProfilePage}/>
         </Switch>
       </BrowserRouter>
